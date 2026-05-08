@@ -63,53 +63,76 @@ body{font-family:'DM Sans',sans-serif;background:#fff;color:#111}
 .progress-bar{background:#D4001B;height:6px;border-radius:10px;transition:width 0.4s}
 .progress-label{font-size:11px;color:#999;margin-bottom:12px}
 .fifa-link{display:inline-flex;align-items:center;gap:6px;background:#0A0F1E;color:#fff;border-radius:6px;padding:6px 14px;font-size:12px;text-decoration:none;margin-bottom:14px}
+
+/* R32 */
 .thirds-panel{background:#f8f8f8;border-radius:10px;padding:14px;margin-bottom:20px}
 .thirds-title{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;color:#0A0F1E;margin-bottom:10px}
-.thirds-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
-.third-item{background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:8px 12px;display:flex;align-items:center;gap:10px}
-.third-rank{font-family:'Bebas Neue',sans-serif;font-size:20px;color:#C89B3C;width:24px}
-.third-info{flex:1}
-.third-name{font-size:13px;font-weight:600}
+.thirds-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px}
+.third-chip{background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:8px 12px;display:flex;align-items:center;gap:10px}
+.third-rank{font-family:'Bebas Neue',sans-serif;font-size:20px;color:#C89B3C;width:22px;flex-shrink:0}
+.third-info{flex:1;min-width:0}
+.third-name{font-size:12px;font-weight:600}
 .third-stats{font-size:10px;color:#999;margin-top:1px}
-.r32-section-title{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;color:#555;margin:20px 0 8px;padding-bottom:4px;border-bottom:2px solid #eee}
-.ko-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:10px}
-.ko-fixture{background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:12px}
-.ko-fixture.has-winner{border-color:#4caf50}
-.ko-fixture-meta{font-size:10px;color:#aaa;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center}
-.ko-team{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:6px;font-size:13px;font-weight:500;border:1.5px solid transparent}
-.ko-team.clickable{cursor:pointer;transition:background 0.15s}
-.ko-team.clickable:hover{background:#f5f5f5}
-.ko-team.winner{background:#e8f5e9;border-color:#4caf50}
-.ko-team.loser{opacity:0.35}
-.ko-team.tbd{color:#bbb;font-style:italic}
-.ko-team.third-tbd{border:1.5px dashed #C89B3C;background:#fffbf0;cursor:pointer}
-.ko-vs{text-align:center;font-size:10px;color:#ddd;padding:2px 0}
-.pick-hint{font-size:10px;color:#1976d2;margin-top:6px;text-align:center}
-.rec-tag{font-size:10px;color:#C89B3C;margin-top:5px;padding-left:2px}
-.user-tag{font-size:10px;color:#1976d2;margin-top:5px;padding-left:2px}
-.change-btn{font-size:9px;background:#f0f0f0;border:none;border-radius:4px;padding:2px 7px;cursor:pointer;margin-left:auto;white-space:nowrap;flex-shrink:0}
-.assign-btn{font-size:10px;background:#C89B3C;color:#fff;border:none;border-radius:4px;padding:3px 10px;cursor:pointer;margin-left:auto}
-.modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.55);display:flex;align-items:center;justify-content:center;z-index:1000}
-.modal{background:#fff;border-radius:12px;padding:20px;max-width:360px;width:92%;max-height:82vh;overflow-y:auto}
-.modal-title{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;color:#0A0F1E;margin-bottom:3px}
-.modal-sub{font-size:11px;color:#888;margin-bottom:14px;line-height:1.5}
-.modal-option{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;cursor:pointer;border:1.5px solid #eee;margin-bottom:7px;transition:all 0.15s}
-.modal-option:hover{background:#f5f5f5;border-color:#ddd}
-.modal-option.is-rec{border-color:#C89B3C;background:#fffbf0}
-.modal-option.is-current{border-color:#4caf50;background:#e8f5e9}
-.modal-option.not-eligible{opacity:0.35;cursor:not-allowed;pointer-events:none}
-.modal-flag{font-size:22px;flex-shrink:0}
-.modal-info{flex:1;min-width:0}
-.modal-team{font-size:13px;font-weight:600}
-.modal-reason{font-size:10px;color:#999;margin-top:2px}
-.badge{font-size:9px;border-radius:3px;padding:1px 5px;margin-left:5px;vertical-align:middle}
-.badge-rec{background:#C89B3C;color:#fff}
-.badge-current{background:#4caf50;color:#fff}
-.badge-swap{background:#1976d2;color:#fff}
-.badge-ineligible{background:#ccc;color:#fff}
-.modal-cancel{width:100%;margin-top:8px;padding:9px;border:1px solid #ddd;border-radius:6px;background:none;cursor:pointer;font-size:13px;color:#666}
+.third-assigned{font-size:10px;color:#1976d2;margin-top:2px;font-style:italic}
+
+.r32-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px}
+.r32-match{background:#fff;border:1.5px solid #e0e0e0;border-radius:12px;padding:14px;transition:border-color 0.2s}
+.r32-match.complete{border-color:#4caf50}
+.r32-match-id{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1px;color:#999;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.r32-match-id .badge-fixed{font-size:9px;background:#e8f5e9;color:#2e7d32;border-radius:3px;padding:2px 6px;font-family:'DM Sans',sans-serif;font-weight:600}
+.r32-match-id .badge-third{font-size:9px;background:#fff8e1;color:#C89B3C;border-radius:3px;padding:2px 6px;font-family:'DM Sans',sans-serif;font-weight:600}
+.r32-team{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:6px;font-size:13px;font-weight:500;border:1.5px solid transparent;cursor:pointer;transition:all 0.15s}
+.r32-team:hover{background:#f5f5f5}
+.r32-team.winner{background:#e8f5e9;border-color:#4caf50}
+.r32-team.loser{opacity:0.3}
+.r32-vs{text-align:center;font-size:10px;color:#ddd;padding:2px 0}
+.r32-pick-hint{font-size:10px;color:#1976d2;margin-top:6px;text-align:center}
+
+/* Draft slot */
+.draft-slot{border:1.5px dashed #ddd;border-radius:8px;padding:10px 12px;margin-top:0;cursor:pointer;transition:all 0.15s;background:#fafafa}
+.draft-slot:hover{border-color:#C89B3C;background:#fffbf0}
+.draft-slot-empty{display:flex;align-items:center;gap:8px}
+.draft-slot-empty .slot-icon{font-size:16px;color:#ccc}
+.draft-slot-empty .slot-label{font-size:12px;color:#aaa;font-style:italic;flex:1}
+.draft-slot-empty .eligible-label{font-size:10px;color:#bbb;background:#f0f0f0;border-radius:4px;padding:2px 6px;white-space:nowrap}
+.draft-slot-filled{display:flex;align-items:center;gap:8px}
+.draft-slot-filled .slot-flag{font-size:20px;flex-shrink:0}
+.draft-slot-filled .slot-name{font-size:13px;font-weight:600;flex:1}
+.draft-slot-filled .slot-group{font-size:10px;color:#999}
+.draft-slot-clear{background:none;border:none;color:#ccc;cursor:pointer;font-size:16px;padding:2px 4px;line-height:1;flex-shrink:0;transition:color 0.15s}
+.draft-slot-clear:hover{color:#D4001B}
+
+/* Pick modal */
+.modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:1000;padding:16px}
+.modal{background:#fff;border-radius:14px;padding:20px;max-width:360px;width:100%;max-height:80vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+.modal-title{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;color:#0A0F1E;margin-bottom:2px}
+.modal-sub{font-size:11px;color:#888;margin-bottom:16px;line-height:1.5}
+.modal-team-option{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;cursor:pointer;border:1.5px solid #f0f0f0;margin-bottom:6px;transition:all 0.15s}
+.modal-team-option:hover{background:#f5f5f5;border-color:#ddd}
+.modal-team-option:last-child{margin-bottom:0}
+.modal-team-flag{font-size:24px;flex-shrink:0}
+.modal-team-info{flex:1}
+.modal-team-name{font-size:13px;font-weight:600}
+.modal-team-detail{font-size:10px;color:#999;margin-top:2px}
+.modal-empty{text-align:center;padding:20px;color:#aaa;font-size:13px}
+.modal-cancel{width:100%;margin-top:12px;padding:10px;border:1.5px solid #eee;border-radius:8px;background:none;cursor:pointer;font-size:13px;color:#888;font-family:'DM Sans',sans-serif}
+.modal-cancel:hover{background:#f5f5f5}
+
+/* KO rounds */
 .ko-info{background:#e3f2fd;border-left:4px solid #1976d2;padding:10px 14px;border-radius:4px;font-size:12px;color:#555;margin-bottom:16px}
 .ko-round-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:#0A0F1E;margin:16px 0 10px}
+.ko-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+.ko-fixture{background:#fff;border:1.5px solid #e0e0e0;border-radius:12px;padding:12px}
+.ko-fixture.has-winner{border-color:#4caf50}
+.ko-fixture-meta{font-size:10px;color:#aaa;margin-bottom:6px;display:flex;justify-content:space-between}
+.ko-team{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:6px;font-size:13px;font-weight:500;border:1.5px solid transparent;cursor:pointer;transition:all 0.15s}
+.ko-team:hover{background:#f5f5f5}
+.ko-team.winner{background:#e8f5e9;border-color:#4caf50}
+.ko-team.loser{opacity:0.3}
+.ko-team.tbd{color:#bbb;font-style:italic;cursor:default}
+.ko-vs{text-align:center;font-size:10px;color:#ddd;padding:2px 0}
+.pick-hint{font-size:10px;color:#1976d2;margin-top:6px;text-align:center}
+
 .awards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:10px}
 .award-card{background:#fff;border:1px solid #e8e8e8;border-radius:10px;padding:14px}
 .award-icon{font-size:28px;margin-bottom:6px}
@@ -156,7 +179,7 @@ body{font-family:'DM Sans',sans-serif;background:#fff;color:#111}
 <div id="tab-final" class="section"></div>
 <div id="tab-awards" class="section"></div>
 <div class="save-bar">
-  <span class="save-status" id="save-status">Predictions auto-saved to your browser</span>
+  <span class="save-status" id="save-status">Predictions auto-saved</span>
   <button class="clear-btn" onclick="clearAll()">Reset all</button>
 </div>
 </div>
@@ -176,6 +199,7 @@ const GROUPS={
   K:{teams:[{n:'Portugal',f:'🇵🇹'},{n:'Uzbekistan',f:'🇺🇿'},{n:'Colombia',f:'🇨🇴'},{n:'DR Congo',f:'🇨🇩'}]},
   L:{teams:[{n:'England',f:'🏴󠁧󠁢󠁥󠁮󠁧󠁿'},{n:'Croatia',f:'🇭🇷'},{n:'Ghana',f:'🇬🇭'},{n:'Panama',f:'🇵🇦'}]}
 };
+
 const FIXTURES=[
   {g:'A',d:'Thu Jun 11',t:'3pm ET',h1:'Mexico',h2:'South Africa',v:'Estadio Azteca, Mexico City'},
   {g:'A',d:'Thu Jun 11',t:'10pm ET',h1:'Korea Republic',h2:'Czechia',v:'Estadio Akron, Guadalajara'},
@@ -250,8 +274,11 @@ const FIXTURES=[
   {g:'L',d:'Fri Jun 27',t:'4pm ET',h1:'Croatia',h2:'Ghana',v:'Lincoln Financial, Philadelphia'},
   {g:'L',d:'Fri Jun 27',t:'7pm ET',h1:'Panama',h2:'England',v:'Hard Rock Stadium, Miami'}
 ];
+
 const TEAM_FLAGS={};
 Object.values(GROUPS).forEach(g=>g.teams.forEach(t=>{TEAM_FLAGS[t.n]=t.f;}));
+
+// Official FIFA R32 bracket M73-M88
 const R32=[
   {id:'M73',t1:{type:'ru',g:'A'},t2:{type:'ru',g:'B'},isThird:false},
   {id:'M74',t1:{type:'w',g:'E'},t2:{type:'3rd',allowed:['A','B','C','D','F']},isThird:true},
@@ -270,34 +297,38 @@ const R32=[
   {id:'M87',t1:{type:'w',g:'K'},t2:{type:'3rd',allowed:['D','E','I','J','L']},isThird:true},
   {id:'M88',t1:{type:'ru',g:'D'},t2:{type:'ru',g:'G'},isThird:false}
 ];
+
 const R16=[
-  {label:'M73 vs M74',t1:{r32:0},t2:{r32:1}},
-  {label:'M75 vs M76',t1:{r32:2},t2:{r32:3}},
-  {label:'M77 vs M78',t1:{r32:4},t2:{r32:5}},
-  {label:'M79 vs M80',t1:{r32:6},t2:{r32:7}},
-  {label:'M81 vs M82',t1:{r32:8},t2:{r32:9}},
-  {label:'M83 vs M84',t1:{r32:10},t2:{r32:11}},
-  {label:'M85 vs M86',t1:{r32:12},t2:{r32:13}},
-  {label:'M87 vs M88',t1:{r32:14},t2:{r32:15}}
+  {label:'M73 winner vs M74 winner',t1:{r32:0},t2:{r32:1}},
+  {label:'M75 winner vs M76 winner',t1:{r32:2},t2:{r32:3}},
+  {label:'M77 winner vs M78 winner',t1:{r32:4},t2:{r32:5}},
+  {label:'M79 winner vs M80 winner',t1:{r32:6},t2:{r32:7}},
+  {label:'M81 winner vs M82 winner',t1:{r32:8},t2:{r32:9}},
+  {label:'M83 winner vs M84 winner',t1:{r32:10},t2:{r32:11}},
+  {label:'M85 winner vs M86 winner',t1:{r32:12},t2:{r32:13}},
+  {label:'M87 winner vs M88 winner',t1:{r32:14},t2:{r32:15}}
 ];
 const QF=[
-  {label:'R16 M1 vs R16 M2',t1:{r16:0},t2:{r16:1}},
-  {label:'R16 M3 vs R16 M4',t1:{r16:2},t2:{r16:3}},
-  {label:'R16 M5 vs R16 M6',t1:{r16:4},t2:{r16:5}},
-  {label:'R16 M7 vs R16 M8',t1:{r16:6},t2:{r16:7}}
+  {label:'R16 M1 winner vs R16 M2 winner',t1:{r16:0},t2:{r16:1}},
+  {label:'R16 M3 winner vs R16 M4 winner',t1:{r16:2},t2:{r16:3}},
+  {label:'R16 M5 winner vs R16 M6 winner',t1:{r16:4},t2:{r16:5}},
+  {label:'R16 M7 winner vs R16 M8 winner',t1:{r16:6},t2:{r16:7}}
 ];
 const SF=[
-  {label:'QF1 vs QF2',t1:{qf:0},t2:{qf:1}},
-  {label:'QF3 vs QF4',t1:{qf:2},t2:{qf:3}}
+  {label:'QF1 winner vs QF2 winner',t1:{qf:0},t2:{qf:1}},
+  {label:'QF3 winner vs QF4 winner',t1:{qf:2},t2:{qf:3}}
 ];
-let state=JSON.parse(localStorage.getItem('wc2026v5')||'{}');
+
+let state=JSON.parse(localStorage.getItem('wc2026v6')||'{}');
 if(!state.scores)state.scores={};
 if(!state.ko)state.ko={};
 if(!state.awards)state.awards={};
-if(!state.thirds)state.thirds={};
-function save(){localStorage.setItem('wc2026v5',JSON.stringify(state));document.getElementById('save-status').textContent='Saved ✓';}
+if(!state.thirds)state.thirds={}; // matchId -> {n,f,group}
+
+function save(){localStorage.setItem('wc2026v6',JSON.stringify(state));document.getElementById('save-status').textContent='Saved ✓';}
 function clearAll(){if(confirm('Reset ALL predictions? This cannot be undone.')){state={scores:{},ko:{},awards:{},thirds:{}};save();location.reload();}}
 function gf(n){return TEAM_FLAGS[n]||'🏳️';}
+
 function showTab(t,btn){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
@@ -310,6 +341,7 @@ function showTab(t,btn){
   if(t==='sf')renderKORound('sf','Semi-Finals',SF);
   if(t==='final')renderFinal();
 }
+
 function calcStandings(){
   const s={};
   Object.keys(GROUPS).forEach(g=>{s[g]={};GROUPS[g].teams.forEach(t=>{s[g][t.n]={p:0,w:0,d:0,l:0,gf:0,ga:0,pts:0};});});
@@ -326,6 +358,7 @@ function calcStandings(){
   });
   return s;
 }
+
 function sortGrp(teams,st){
   return [...teams].sort((a,b)=>{
     const sa=st[a.n],sb=st[b.n];
@@ -335,6 +368,7 @@ function sortGrp(teams,st){
     return sb.gf-sa.gf;
   });
 }
+
 function get3rds(standings){
   const arr=[];
   Object.keys(GROUPS).forEach(g=>{
@@ -343,6 +377,7 @@ function get3rds(standings){
   });
   return arr.sort((a,b)=>b.pts!==a.pts?b.pts-a.pts:b.gd!==a.gd?b.gd-a.gd:b.gf-a.gf);
 }
+
 function getQualifiers(){
   const standings=calcStandings();
   const thirds=get3rds(standings);
@@ -355,30 +390,28 @@ function getQualifiers(){
   thirds.slice(0,8).forEach((t,i)=>{q['T'+(i+1)]={n:t.team.n,f:t.team.f,group:t.group,rank:i+1,pts:t.pts,gd:t.gd,gf:t.gf};});
   return q;
 }
+
 function resolveFixed(slot,q){
   if(slot.type==='w')return q['W'+slot.g]||null;
   if(slot.type==='ru')return q['R'+slot.g]||null;
   return null;
 }
-function buildRecs(q){
+
+// Get all teams already picked in other third-place slots
+function getPickedThirds(excludeMatchId){
+  return new Set(Object.entries(state.thirds).filter(([mid])=>mid!==excludeMatchId).map(([,t])=>t.n));
+}
+
+// Get available options for a slot: eligible group + not already picked elsewhere
+function getOptions(allowed,excludeMatchId,q){
+  const picked=getPickedThirds(excludeMatchId);
   const thirds=[];
   for(let i=1;i<=8;i++){if(q['T'+i])thirds.push(q['T'+i]);}
-  const recs={};const used=new Set();
-  R32.forEach(m=>{
-    if(!m.isThird)return;
-    for(const t of thirds){
-      if(!used.has(t.n)&&m.t2.allowed.includes(t.group)){recs[m.id]={n:t.n,f:t.f,group:t.group,pts:t.pts,gd:t.gd,gf:t.gf};used.add(t.n);break;}
-    }
-  });
-  return recs;
+  return thirds.filter(t=>allowed.includes(t.group)&&!picked.has(t.n));
 }
-function getThirdTeam(matchId,recs){return state.thirds[matchId]||recs[matchId]||null;}
-function findAssignment(teamName){
-  for(const[mid,t]of Object.entries(state.thirds)){if(t.n===teamName)return mid;}
-  return null;
-}
+
 function renderGroups(){
-  let h=`<div class="info-box">🌎 48 teams · 12 groups of 4. Stars ★ mark host nations USA, Mexico and Canada. Predict scores in Fixtures — standings update live.</div><div class="groups-grid">`;
+  let h=`<div class="info-box">🌎 48 teams · 12 groups of 4. Stars ★ mark host nations. Predict scores in Fixtures — standings update live.</div><div class="groups-grid">`;
   Object.keys(GROUPS).forEach(gk=>{
     h+=`<div class="group-card"><div class="group-header">Group ${gk}</div>`;
     GROUPS[gk].teams.forEach(t=>{h+=`<div class="team-row"><span class="team-flag">${t.f}</span><span class="team-name">${t.n}</span>${t.host?'<span class="host-star">★</span>':''}</div>`;});
@@ -387,6 +420,7 @@ function renderGroups(){
   h+=`</div>`;
   document.getElementById('tab-groups').innerHTML=h;
 }
+
 function renderFixtures(){
   const total=FIXTURES.length;
   const done=Object.keys(state.scores).filter(i=>{const s=state.scores[i];return s&&s.h1!==''&&s.h1!==undefined;}).length;
@@ -418,11 +452,13 @@ function renderFixtures(){
   });
   document.getElementById('tab-fixtures').innerHTML=h;
 }
+
 function saveScore(i){
   const h1=document.getElementById('sc_'+i+'_h1').value;
   const h2=document.getElementById('sc_'+i+'_h2').value;
   if(h1!==''&&h2!==''){state.scores[i]={h1,h2};save();renderFixtures();}
 }
+
 function renderStandings(){
   const standings=calcStandings();
   const thirds=get3rds(standings);
@@ -455,102 +491,144 @@ function renderStandings(){
   }
   document.getElementById('tab-standings').innerHTML=h;
 }
+
 function renderR32(){
-  const q=getQualifiers();const recs=buildRecs(q);
-  const thirds=[];for(let i=1;i<=8;i++){if(q['T'+i])thirds.push(q['T'+i]);}
+  const q=getQualifiers();
+  const thirds=[];
+  for(let i=1;i<=8;i++){if(q['T'+i])thirds.push(q['T'+i]);}
   const hasScores=thirds.length>0;
-  let h=`<div class="june27-banner">📅 <strong>FIFA confirms exact 3rd place slots on June 27</strong> once all group matches finish.<br>We recommend which 3rd place team faces each group winner — based on your predicted standings, no same-group clashes ever. You can change any assignment freely — it's a simple swap.</div>`;
+
+  let h=`<div class="june27-banner">
+    📅 <strong>FIFA confirms exact 3rd place bracket slots on June 27</strong> once all group matches finish.<br>
+    Predict scores in Fixtures to see your Top 8 third-place teams. Then pick which 3rd place team faces each group winner below — only eligible options appear, and each team can only be picked once.
+  </div>`;
+
+  // Top 8 panel
   if(hasScores){
-    h+=`<div class="thirds-panel"><div class="thirds-title">Your Top 8 Third-Place Qualifiers</div><div class="thirds-list">`;
+    h+=`<div class="thirds-panel"><div class="thirds-title">Your Top 8 Third-Place Qualifiers</div><div class="thirds-grid">`;
     thirds.forEach((t,i)=>{
-      const assignedTo=findAssignment(t.n);const recMatch=Object.entries(recs).find(([mid,rt])=>rt.n===t.n);
-      const location=assignedTo||recMatch?.[0]||'Unassigned';
-      h+=`<div class="third-item"><div class="third-rank">${i+1}</div><div style="font-size:22px">${t.f}</div><div class="third-info"><div class="third-name">${t.n}</div><div class="third-stats">Pts:${t.pts} · GD:${t.gd>=0?'+':''}${t.gd} · GF:${t.gf} · Grp ${t.group}</div><div style="font-size:10px;color:#1976d2;margin-top:2px">→ ${location}</div></div></div>`;
+      const assignedTo=Object.entries(state.thirds).find(([,v])=>v.n===t.n)?.[0]||null;
+      h+=`<div class="third-chip">
+        <div class="third-rank">${i+1}</div>
+        <div style="font-size:20px">${t.f}</div>
+        <div class="third-info">
+          <div class="third-name">${t.n}</div>
+          <div class="third-stats">Pts:${t.pts} · GD:${t.gd>=0?'+':''}${t.gd} · Grp ${t.group}</div>
+          ${assignedTo?`<div class="third-assigned">→ Assigned to ${assignedTo}</div>`:'<div class="third-assigned" style="color:#ccc">Not yet assigned</div>'}
+        </div>
+      </div>`;
     });
     h+=`</div></div>`;
+  } else {
+    h+=`<div class="info-box">👆 Predict your group stage scores in the <strong>Fixtures</strong> tab first. Your Top 8 third-place teams will appear here once you do.</div>`;
   }
-  h+=`<div class="r32-section-title">All 16 Round of 32 Matches — Official FIFA Bracket</div><div class="ko-grid">`;
+
+  h+=`<div style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;color:#0A0F1E;margin:16px 0 10px;padding-bottom:6px;border-bottom:2px solid #eee">All 16 Round of 32 Matches</div>
+  <div class="r32-grid">`;
+
   R32.forEach((match,idx)=>{
-    const t1=resolveFixed(match.t1,q);const mid='r32_'+idx;const picked=state.ko[mid];
+    const t1=resolveFixed(match.t1,q);
+    const mid='r32_'+idx;
+    const picked=state.ko[mid];
     const t1win=picked===0,t2win=picked===1;
-    let t2=null,isUserPick=false,isRec=false;
-    if(match.isThird){t2=getThirdTeam(match.id,recs);isUserPick=!!state.thirds[match.id];isRec=!isUserPick&&!!recs[match.id];}
+    let t2=null;
+    if(match.isThird){t2=state.thirds[match.id]?{...state.thirds[match.id]}:null;}
     else{t2=resolveFixed(match.t2,q);}
-    h+=`<div class="ko-fixture ${picked!==undefined?'has-winner':''}">
-      <div class="ko-fixture-meta"><span style="font-weight:700;color:#0A0F1E;font-size:11px">${match.id}</span><span style="font-size:9px;color:${match.isThird?(isUserPick?'#1976d2':'#C89B3C'):'#4caf50'}">${match.isThird?(isUserPick?'Your pick':'Recommended'):'✓ Fixed'}</span></div>
-      <div class="ko-team ${t1?'clickable':''} ${picked!==undefined?(t1win?'winner':'loser'):''}" onclick="${t1?`pickKO('${mid}',0)`:''}">
-        <span style="font-size:18px">${t1?t1.f:'🏳️'}</span><span>${t1?t1.n:'TBD'}</span>${t1win?'<span style="margin-left:auto;font-size:10px;color:#4caf50">✓</span>':''}
+
+    h+=`<div class="r32-match ${picked!==undefined?'complete':''}">
+      <div class="r32-match-id">
+        <span>${match.id}</span>
+        <span class="${match.isThird?'badge-third':'badge-fixed'}">${match.isThird?'3rd place slot':'Fixed'}</span>
       </div>
-      <div class="ko-vs">vs</div>`;
+      <div class="r32-team ${t1?'':'tbd'} ${picked!==undefined?(t1win?'winner':'loser'):''}" onclick="${t1&&t2?`pickKO('${mid}',0)`:''}">
+        <span style="font-size:18px">${t1?t1.f:'🏳️'}</span><span style="flex:1">${t1?t1.n:'TBD'}</span>
+        ${t1win?'<span style="font-size:10px;color:#4caf50">✓ Winner</span>':''}
+      </div>
+      <div class="r32-vs">vs</div>`;
+
     if(match.isThird){
       if(t2){
-        h+=`<div class="ko-team clickable ${picked!==undefined?(t2win?'winner':'loser'):''}" onclick="pickKO('${mid}',1)" style="flex-wrap:nowrap">
-          <span style="font-size:18px;flex-shrink:0">${t2.f}</span><span style="flex:1">${t2.n} <span style="font-size:10px;color:#999">(3rd·G${t2.group})</span></span>
-          <button class="change-btn" onclick="event.stopPropagation();openAssign('${match.id}','${match.t2.allowed.join(',')}',${idx})">Change</button>
-          ${t2win?'<span style="font-size:10px;color:#4caf50">✓</span>':''}
-        </div>
-        <div class="${isUserPick?'user-tag':'rec-tag'}">${isUserPick?'Your pick — <span style="color:#D4001B;cursor:pointer" onclick="resetThird(\''+match.id+'\','+idx+')">Reset to recommendation</span>':'💡 Recommended · eligible: '+match.t2.allowed.join('/')}</div>`;
+        // Team picked — show with clear button
+        h+=`<div class="r32-team ${picked!==undefined?(t2win?'winner':'loser'):''}" onclick="${t2?`pickKO('${mid}',1)`:''}" style="cursor:${t1?'pointer':'default'}">
+          <span style="font-size:18px">${t2.f}</span>
+          <span style="flex:1">${t2.n} <span style="font-size:10px;color:#999">(3rd · Grp ${t2.group})</span></span>
+          <button class="draft-slot-clear" onclick="event.stopPropagation();clearThird('${match.id}',${idx})" title="Clear pick">✕</button>
+          ${t2win?'<span style="font-size:10px;color:#4caf50">✓ Winner</span>':''}
+        </div>`;
       } else {
-        h+=`<div class="ko-team third-tbd" onclick="openAssign('${match.id}','${match.t2.allowed.join(',')}',${idx})">
-          <span style="font-size:16px">🏳️</span><span style="flex:1;font-size:12px;color:#C89B3C;font-style:italic">${hasScores?'Click to assign':'Predict scores first'}</span>
-          ${hasScores?'<button class="assign-btn">Assign</button>':''}
-        </div><div class="rec-tag">Eligible groups: ${match.t2.allowed.join('/')}</div>`;
+        // Empty slot — show pick button
+        const options=getOptions(match.t2.allowed,match.id,q);
+        h+=`<div class="draft-slot" onclick="${hasScores&&options.length>0?`openPick('${match.id}','${match.t2.allowed.join(',')}')`:''}" style="cursor:${hasScores&&options.length>0?'pointer':'default'}">
+          <div class="draft-slot-empty">
+            <span class="slot-icon">${hasScores?(options.length>0?'👆':'✅'):'⏳'}</span>
+            <span class="slot-label">${!hasScores?'Predict scores first':options.length===0?'All eligible teams assigned':'Pick a 3rd place team'}</span>
+            <span class="eligible-label">Groups: ${match.t2.allowed.join('/')}</span>
+          </div>
+        </div>`;
       }
     } else {
-      h+=`<div class="ko-team ${t2?'clickable':''} ${picked!==undefined?(t2win?'winner':'loser'):''}" onclick="${t2?`pickKO('${mid}',1)`:''}">
-        <span style="font-size:18px">${t2?t2.f:'🏳️'}</span><span>${t2?t2.n:'TBD'}</span>${t2win?'<span style="margin-left:auto;font-size:10px;color:#4caf50">✓</span>':''}
+      h+=`<div class="r32-team ${t2?'':'tbd'} ${picked!==undefined?(t2win?'winner':'loser'):''}" onclick="${t1&&t2?`pickKO('${mid}',1)`:''}">
+        <span style="font-size:18px">${t2?t2.f:'🏳️'}</span><span style="flex:1">${t2?t2.n:'TBD'}</span>
+        ${t2win?'<span style="font-size:10px;color:#4caf50">✓ Winner</span>':''}
       </div>`;
     }
-    h+=`${picked===undefined&&t1&&t2?'<div class="pick-hint">Tap a team to pick the winner</div>':''}</div>`;
-  });
-  h+=`</div><div style="text-align:center;margin-top:20px"><a class="fifa-link" href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures" target="_blank">🔗 Confirm your bracket on FIFA.com from June 27</a></div>`;
-  document.getElementById('tab-r32').innerHTML=h;
-}
-let aCtx={matchId:null,allowed:null,idx:null};
-function openAssign(matchId,allowedStr,idx){
-  aCtx={matchId,allowed:allowedStr.split(','),idx};
-  const q=getQualifiers();const recs=buildRecs(q);
-  const thirds=[];for(let i=1;i<=8;i++){if(q['T'+i])thirds.push(q['T'+i]);}
-  if(!thirds.length){alert('Predict group stage scores first.');return;}
-  const currentTeam=state.thirds[matchId]||recs[matchId]||null;
-  let modal=`<div class="modal-overlay" id="amodal" onclick="if(event.target===this)closeModal()"><div class="modal">
-  <div class="modal-title">Change 3rd Place Team</div>
-  <div class="modal-sub">Eligible groups for this slot: <strong>${aCtx.allowed.join(', ')}</strong><br>Picking a team already assigned elsewhere swaps them automatically.</div>`;
-  thirds.forEach(t=>{
-    const notEligible=!aCtx.allowed.includes(t.group);
-    const isCurrent=currentTeam&&currentTeam.n===t.n;
-    const existingAssignment=findAssignment(t.n);
-    const isSwap=existingAssignment&&existingAssignment!==matchId;
-    const isRec=recs[matchId]&&recs[matchId].n===t.n&&!isCurrent;
-    let cls='modal-option';
-    if(isCurrent)cls+=' is-current';else if(isRec)cls+=' is-rec';
-    if(notEligible)cls+=' not-eligible';
-    let badge='';
-    if(isCurrent)badge=`<span class="badge badge-current">Current</span>`;
-    else if(isRec)badge=`<span class="badge badge-rec">Recommended</span>`;
-    else if(isSwap)badge=`<span class="badge badge-swap">Swap from ${existingAssignment}</span>`;
-    if(notEligible)badge=`<span class="badge badge-ineligible">Group ${t.group} not eligible</span>`;
-    let reason=notEligible?`Not eligible for this slot`:`From Group ${t.group} · Pts:${t.pts} · GD:${t.gd>=0?'+':''}${t.gd} · GF:${t.gf}`;
-    modal+=`<div class="${cls}" onclick="${!notEligible&&!isCurrent?`doAssign('${t.n}','${t.f}','${t.group}')`:''}" >
-      <span class="modal-flag">${t.f}</span>
-      <div class="modal-info"><div class="modal-team">${t.n}${badge}</div><div class="modal-reason">${reason}</div></div>
+
+    h+=`${picked===undefined&&t1&&t2?'<div class="r32-pick-hint">Tap a team to pick the winner</div>':''}
     </div>`;
   });
+
+  h+=`</div><div style="text-align:center;margin-top:20px">
+    <a class="fifa-link" href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures" target="_blank">🔗 Confirm your bracket on FIFA.com from June 27</a>
+  </div>`;
+
+  document.getElementById('tab-r32').innerHTML=h;
+}
+
+// Draft pick modal
+function openPick(matchId,allowedStr){
+  const q=getQualifiers();
+  const allowed=allowedStr.split(',');
+  const options=getOptions(allowed,matchId,q);
+
+  let modal=`<div class="modal-overlay" id="pickmodal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-title">Pick 3rd Place Team</div>
+    <div class="modal-sub">Only teams from eligible groups are shown.<br>Each team can only be assigned to one match.</div>`;
+
+  if(options.length===0){
+    modal+=`<div class="modal-empty">No eligible teams available.<br>All qualifying 3rd place teams from groups ${allowed.join('/')} have already been assigned.</div>`;
+  } else {
+    options.forEach(t=>{
+      modal+=`<div class="modal-team-option" onclick="pickThird('${matchId}','${t.n}','${t.f}','${t.group}')">
+        <span class="modal-team-flag">${t.f}</span>
+        <div class="modal-team-info">
+          <div class="modal-team-name">${t.n}</div>
+          <div class="modal-team-detail">Group ${t.group} · Pts: ${t.pts} · GD: ${t.gd>=0?'+':''}${t.gd} · GF: ${t.gf}</div>
+        </div>
+      </div>`;
+    });
+  }
+
   modal+=`<button class="modal-cancel" onclick="closeModal()">Cancel</button></div></div>`;
   document.body.insertAdjacentHTML('beforeend',modal);
 }
-function doAssign(name,flag,group){
-  const oldMatchId=findAssignment(name);
-  if(oldMatchId&&oldMatchId!==aCtx.matchId){
-    const currentTeam=state.thirds[aCtx.matchId]||null;
-    const oldMatch=R32.find(m=>m.id===oldMatchId);
-    if(currentTeam&&oldMatch&&oldMatch.t2.allowed.includes(currentTeam.group)){state.thirds[oldMatchId]={n:currentTeam.n,f:currentTeam.f,group:currentTeam.group};}
-    else{delete state.thirds[oldMatchId];const oldIdx=R32.findIndex(m=>m.id===oldMatchId);if(oldIdx>=0)delete state.ko['r32_'+oldIdx];}
-  }
-  state.thirds[aCtx.matchId]={n:name,f:flag,group};delete state.ko['r32_'+aCtx.idx];save();closeModal();renderR32();
+
+function pickThird(matchId,name,flag,group){
+  state.thirds[matchId]={n:name,f:flag,group};
+  // clear ko pick for this match if team changed
+  const idx=R32.findIndex(m=>m.id===matchId);
+  if(idx>=0)delete state.ko['r32_'+idx];
+  save();closeModal();renderR32();
 }
-function resetThird(matchId,idx){delete state.thirds[matchId];delete state.ko['r32_'+idx];save();renderR32();}
-function closeModal(){const m=document.getElementById('amodal');if(m)m.remove();}
+
+function clearThird(matchId,idx){
+  delete state.thirds[matchId];
+  delete state.ko['r32_'+idx];
+  save();renderR32();
+}
+
+function closeModal(){const m=document.getElementById('pickmodal');if(m)m.remove();}
+
 function pickKO(mid,idx){
   state.ko[mid]=idx;save();
   if(mid.startsWith('r32'))renderR32();
@@ -559,13 +637,15 @@ function pickKO(mid,idx){
   else if(mid.startsWith('sf'))renderKORound('sf','Semi-Finals',SF);
   else if(mid.startsWith('final'))renderFinal();
 }
+
 function getR32Winner(idx){
-  const match=R32[idx];const q=getQualifiers();const recs=buildRecs(q);
+  const match=R32[idx];const q=getQualifiers();
   const mid='r32_'+idx;const picked=state.ko[mid];if(picked===undefined)return null;
   const t1=resolveFixed(match.t1,q);
-  const t2=match.isThird?getThirdTeam(match.id,recs):resolveFixed(match.t2,q);
+  const t2=match.isThird?(state.thirds[match.id]||null):resolveFixed(match.t2,q);
   return picked===0?t1:t2;
 }
+
 function resolveKO(ref){
   if(ref.r32!==undefined)return getR32Winner(ref.r32);
   if(ref.r16!==undefined){const p=state.ko['r16_'+ref.r16];if(p===undefined)return null;const m=R16[ref.r16];return resolveKO(p===0?m.t1:m.t2);}
@@ -573,8 +653,9 @@ function resolveKO(ref){
   if(ref.sf!==undefined){const p=state.ko['sf_'+ref.sf];if(p===undefined)return null;const m=SF[ref.sf];return resolveKO(p===0?m.t1:m.t2);}
   return null;
 }
+
 function renderKORound(roundId,title,matches){
-  let h=`<div class="ko-info">Click a team to pick the winner. They advance to the next round. Both teams remain visible in this bracket.</div>
+  let h=`<div class="ko-info">Click a team to pick the winner. They advance to the next round. Both teams stay visible in this bracket.</div>
   <a class="fifa-link" href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures" target="_blank">🔗 Official FIFA results</a>
   <div class="ko-round-title">${title}</div><div class="ko-grid">`;
   matches.forEach((m,mi)=>{
@@ -582,12 +663,14 @@ function renderKORound(roundId,title,matches){
     const mid=roundId+'_'+mi;const picked=state.ko[mid];const t1win=picked===0,t2win=picked===1;
     h+=`<div class="ko-fixture ${picked!==undefined?'has-winner':''}">
       <div class="ko-fixture-meta"><span style="font-weight:600">Match ${mi+1}</span><span>${m.label}</span></div>
-      <div class="ko-team ${t1?'clickable':''} ${picked!==undefined?(t1win?'winner':'loser'):''}" onclick="${t1?`pickKO('${mid}',0)`:''}">
-        <span style="font-size:18px">${t1?t1.f:'🏳️'}</span><span>${t1?t1.n:'Complete prior round first'}</span>${t1win?'<span style="margin-left:auto;font-size:10px;color:#4caf50">✓ Winner</span>':''}
+      <div class="ko-team ${t1?'':'tbd'} ${picked!==undefined?(t1win?'winner':'loser'):''}" onclick="${t1?`pickKO('${mid}',0)`:''}">
+        <span style="font-size:18px">${t1?t1.f:'🏳️'}</span><span>${t1?t1.n:'Complete prior round first'}</span>
+        ${t1win?'<span style="margin-left:auto;font-size:10px;color:#4caf50">✓ Winner</span>':''}
       </div>
       <div class="ko-vs">vs</div>
-      <div class="ko-team ${t2?'clickable':''} ${picked!==undefined?(t2win?'winner':'loser'):''}" onclick="${t2?`pickKO('${mid}',1)`:''}">
-        <span style="font-size:18px">${t2?t2.f:'🏳️'}</span><span>${t2?t2.n:'Complete prior round first'}</span>${t2win?'<span style="margin-left:auto;font-size:10px;color:#4caf50">✓ Winner</span>':''}
+      <div class="ko-team ${t2?'':'tbd'} ${picked!==undefined?(t2win?'winner':'loser'):''}" onclick="${t2?`pickKO('${mid}',1)`:''}">
+        <span style="font-size:18px">${t2?t2.f:'🏳️'}</span><span>${t2?t2.n:'Complete prior round first'}</span>
+        ${t2win?'<span style="margin-left:auto;font-size:10px;color:#4caf50">✓ Winner</span>':''}
       </div>
       ${picked===undefined&&t1&&t2?'<div class="pick-hint">Tap a team to pick the winner</div>':''}
     </div>`;
@@ -595,6 +678,7 @@ function renderKORound(roundId,title,matches){
   h+=`</div>`;
   document.getElementById('tab-'+roundId).innerHTML=h;
 }
+
 function renderFinal(){
   const t1=resolveKO({sf:0});const t2=resolveKO({sf:1});
   const picked=state.ko['final_0'];const winner=picked===0?t1:picked===1?t2:null;
@@ -604,11 +688,13 @@ function renderFinal(){
   if(t1&&t2){
     h+=`<div style="display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:24px">
       <div onclick="pickKO('final_0',0)" style="cursor:pointer;border:2px solid ${picked===0?'#4caf50':'#e0e0e0'};border-radius:12px;padding:20px 28px;text-align:center;background:${picked===0?'#e8f5e9':'#fff'};min-width:130px">
-        <div style="font-size:44px">${t1.f}</div><div style="font-size:15px;font-weight:600;margin-top:8px">${t1.n}</div>${picked===0?'<div style="color:#4caf50;font-size:12px;margin-top:6px">🏆 Champion</div>':''}
+        <div style="font-size:44px">${t1.f}</div><div style="font-size:15px;font-weight:600;margin-top:8px">${t1.n}</div>
+        ${picked===0?'<div style="color:#4caf50;font-size:12px;margin-top:6px">🏆 Champion</div>':''}
       </div>
       <div style="font-family:\'Bebas Neue\',sans-serif;font-size:28px;color:#ccc">VS</div>
       <div onclick="pickKO('final_0',1)" style="cursor:pointer;border:2px solid ${picked===1?'#4caf50':'#e0e0e0'};border-radius:12px;padding:20px 28px;text-align:center;background:${picked===1?'#e8f5e9':'#fff'};min-width:130px">
-        <div style="font-size:44px">${t2.f}</div><div style="font-size:15px;font-weight:600;margin-top:8px">${t2.n}</div>${picked===1?'<div style="color:#4caf50;font-size:12px;margin-top:6px">🏆 Champion</div>':''}
+        <div style="font-size:44px">${t2.f}</div><div style="font-size:15px;font-weight:600;margin-top:8px">${t2.n}</div>
+        ${picked===1?'<div style="color:#4caf50;font-size:12px;margin-top:6px">🏆 Champion</div>':''}
       </div>
     </div>`;
     if(picked===undefined)h+=`<div style="font-size:13px;color:#1976d2">Click a team to pick your World Cup Champion</div>`;
@@ -625,6 +711,7 @@ function renderFinal(){
   h+=`</div>`;
   document.getElementById('tab-final').innerHTML=h;
 }
+
 function renderAwards(){
   const awards=[
     {id:'boot',icon:'⚽',name:'Golden Boot',desc:'Top scorer of the tournament'},
@@ -644,12 +731,14 @@ function renderAwards(){
   h+=`</div>`;
   document.getElementById('tab-awards').innerHTML=h;
 }
+
 function saveAward(id,field,val){
   if(!state.awards[id])state.awards[id]={p1:'',p2:'',p3:''};
   state.awards[id][field]=val;save();
   const el=document.getElementById('asvd-'+id);
   if(el){el.style.display='block';setTimeout(()=>el.style.display='none',1800);}
 }
+
 renderGroups();renderFixtures();renderStandings();renderR32();
 renderKORound('r16','Round of 16',R16);
 renderKORound('qf','Quarter-Finals',QF);
