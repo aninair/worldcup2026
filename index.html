@@ -410,6 +410,32 @@ function getOptions(allowed,excludeMatchId,q){
   return thirds.filter(t=>allowed.includes(t.group)&&!picked.has(t.n));
 }
 
+// Get all unassigned Top 8 third-place teams across ALL slots
+function getUnassigned(q){
+  const allPicked=new Set(Object.values(state.thirds).map(t=>t.n));
+  const thirds=[];
+  for(let i=1;i<=8;i++){if(q['T'+i])thirds.push(q['T'+i]);}
+  return thirds.filter(t=>!allPicked.has(t.n));
+}
+
+// Count how many third-place slots are still empty
+function countEmptyThirdSlots(){
+  return R32.filter(m=>m.isThird&&!state.thirds[m.id]).length;
+}
+
+// If only 1 team unassigned and 1 slot empty — return that team for auto-fill
+// If options is empty but unassigned teams exist and this is one of the last slots — auto-fill
+function getAutoFill(matchId,q){
+  const unassigned=getUnassigned(q);
+  const emptySlots=countEmptyThirdSlots();
+  // Only auto-fill when remaining unassigned === remaining empty slots (i.e. forced assignment)
+  if(unassigned.length>0&&unassigned.length===emptySlots){
+    // This slot gets the first unassigned team
+    return unassigned[0];
+  }
+  return null;
+}
+
 function renderGroups(){
   let h=`<div class="info-box">🌎 48 teams · 12 groups of 4. Stars ★ mark host nations. Predict scores in Fixtures — standings update live.</div><div class="groups-grid">`;
   Object.keys(GROUPS).forEach(gk=>{
@@ -556,15 +582,27 @@ function renderR32(){
           ${t2win?'<span style="font-size:10px;color:#4caf50">✓ Winner</span>':''}
         </div>`;
       } else {
-        // Empty slot — show pick button
+        // Empty slot — check for auto-fill first
         const options=getOptions(match.t2.allowed,match.id,q);
-        h+=`<div class="draft-slot" onclick="${hasScores&&options.length>0?`openPick('${match.id}','${match.t2.allowed.join(',')}')`:''}" style="cursor:${hasScores&&options.length>0?'pointer':'default'}">
-          <div class="draft-slot-empty">
-            <span class="slot-icon">${hasScores?(options.length>0?'👆':'✅'):'⏳'}</span>
-            <span class="slot-label">${!hasScores?'Predict scores first':options.length===0?'All eligible teams assigned':'Pick a 3rd place team'}</span>
-            <span class="eligible-label">Groups: ${match.t2.allowed.join('/')}</span>
+        const autoFill=options.length===0&&hasScores?getAutoFill(match.id,q):null;
+        if(autoFill){
+          // Auto-fill: show team with gold border and note
+          if(!state.thirds[match.id]){state.thirds[match.id]={n:autoFill.n,f:autoFill.f,group:autoFill.group};save();}
+          h+=`<div class="r32-team ${picked!==undefined?(t2win?'winner':'loser'):''}" onclick="${t1?`pickKO('${mid}',1)`:''}" style="cursor:${t1?'pointer':'default'};border-color:#C89B3C;background:#fffbf0;">
+            <span style="font-size:18px">${autoFill.f}</span>
+            <span style="flex:1">${autoFill.n} <span style="font-size:10px;color:#999">(3rd · Grp ${autoFill.group})</span></span>
+            ${t2win?'<span style="font-size:10px;color:#4caf50">✓ Winner</span>':''}
           </div>
-        </div>`;
+          <div style="font-size:10px;color:#C89B3C;margin-top:5px;padding-left:2px">⚡ Auto-assigned — only team remaining</div>`;
+        } else {
+          h+=`<div class="draft-slot" onclick="${hasScores&&options.length>0?`openPick('${match.id}','${match.t2.allowed.join(',')}')`:''}" style="cursor:${hasScores&&options.length>0?'pointer':'default'}">
+            <div class="draft-slot-empty">
+              <span class="slot-icon">${hasScores?(options.length>0?'👆':'⚠️'):'⏳'}</span>
+              <span class="slot-label">${!hasScores?'Predict scores first':options.length===0?'Assign other slots first':'Pick a 3rd place team'}</span>
+              <span class="eligible-label">Groups: ${match.t2.allowed.join('/')}</span>
+            </div>
+          </div>`;
+        }
       }
     } else {
       h+=`<div class="r32-team ${t2?'':'tbd'} ${picked!==undefined?(t2win?'winner':'loser'):''}" onclick="${t1&&t2?`pickKO('${mid}',1)`:''}">
